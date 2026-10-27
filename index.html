@@ -3,12 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HANKUKMOLD</title>
-  <style>
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: system-ui, sans-serif; }
-  </style>
+  <title>가상 AI 오피스</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>HANKUKMOLD</h1>
+  <canvas id="scene"></canvas>
+  <div id="hint">드래그: 회전 · 휠: 확대/축소 · AI 직원을 클릭하면 대화할 수 있어요</div>
+  <div id="labels"></div>
+
+  <aside id="chat" hidden>
+    <header>
+      <div>
+        <strong id="chat-name"></strong>
+        <span id="chat-role"></span>
+      </div>
+      <button id="chat-close" aria-label="닫기">×</button>
+    </header>
+    <div id="chat-log"></div>
+    <form id="chat-form">
+      <textarea id="chat-input" rows="2" placeholder="업무를 지시하거나 질문하세요" required></textarea>
+      <button type="submit" id="chat-send">전송</button>
+    </form>
+  </aside>
+
+  <script type="module" src="main.js"></script>
 </body>
 </html>
